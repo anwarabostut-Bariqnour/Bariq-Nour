@@ -1831,6 +1831,7 @@ def admin_export_students_csv():
 # ==========================================
 # تشغيل الموقع
 # ==========================================
+import os
 
 if __name__ == "__main__":
     init_database()
@@ -1838,13 +1839,12 @@ if __name__ == "__main__":
     print("=" * 50)
     print("موقع أستاذ أنور أبو ستيت")
     print("الدراسات الاجتماعية")
-    print("رابط الموقع: http://127.0.0.1:5000")
-    print("لوحة التحكم: http://127.0.0.1:5000/admin")
-    print("كلمة مرور لوحة التحكم محفوظة في private_settings.py")
     print("=" * 50)
 
+    port = int(os.environ.get("PORT", 5000))
+
     app.run(
-    host="0.0.0.0",
-    port=5000,
-    debug=True
-)
+        host="0.0.0.0",
+        port=port
+    )
+
